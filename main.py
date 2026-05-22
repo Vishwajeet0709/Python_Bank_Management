@@ -47,7 +47,7 @@ class Bank:
             "age": age,
             "email": email,
             "pin": pin,
-            "accountNo.": cls.__accountgenerate(),
+            "accountNo": cls.__accountgenerate(),
             "balance": 0,
         }
 
@@ -61,7 +61,11 @@ class Bank:
     def find_user(cls, acc_no, pin):
 
         for user in cls.dummy_data:
-            if user["accountNo."] == acc_no and user["pin"] == pin:
+
+            if (
+                user.get("accountNo") == acc_no
+                and user.get("pin") == pin
+            ):
                 return user
 
         return None
